@@ -1,4 +1,4 @@
-const zsync = require('./index');
+const vsync = require('./index');
 
 let ret;
 
@@ -8,7 +8,7 @@ setTimeout(() => {
 
 while (ret === undefined) {
   console.log('wait');
-  zsync.sleep(10);
+  vsync.sleep(10);
 }
 
 console.log(ret);

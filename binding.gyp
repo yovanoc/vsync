@@ -1,8 +1,8 @@
 {
   "targets": [
     {
-      "target_name": "zsync",
-      "sources": [ "zsync.cc" ],
+      "target_name": "vsync",
+      "sources": [ "vsync.cc" ],
       "include_dirs": [
         "<!(node -e \"require('nan')\")"
       ]

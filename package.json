@@ -1,25 +1,25 @@
 {
-  "name": "zsync",
+  "name": "vsync",
   "version": "1.0.0",
   "main": "index.js",
   "description": "Turns async function into sync via JavaScript wrapper of Node event loop",
   "scripts": {
     "build": "node-gyp configure build",
-    "test": "node zsync.js"
+    "test": "node vsync.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yovanoc/zsync.git"
+    "url": "git+https://github.com/yovanoc/vsync.git"
   },
   "keywords": [
-    "zsync"
+    "vsync"
   ],
   "author": "Christopher Yovanovitch <yovano_c@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yovanoc/zsync/issues"
+    "url": "https://github.com/yovanoc/vsync/issues"
   },
-  "homepage": "https://github.com/yovanoc/zsync#readme",
+  "homepage": "https://github.com/yovanoc/vsync#readme",
   "gypfile": true,
   "dependencies": {
     "bindings": "^1.3.0",

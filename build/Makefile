@@ -321,12 +321,12 @@ $(obj).$(TOOLSET)/%.o: $(obj)/%.s FORCE_DO_CMD
 
 ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
     $(findstring $(join ^,$(prefix)),\
-                 $(join ^,osync.target.mk)))),)
-  include osync.target.mk
+                 $(join ^,vsync.target.mk)))),)
+  include vsync.target.mk
 endif
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
-cmd_regen_makefile = cd $(srcdir); /usr/local/Cellar/node/9.8.0/libexec/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "--toplevel-dir=." -I/Users/devchris/Desktop/osync/build/config.gypi -I/usr/local/Cellar/node/9.8.0/libexec/lib/node_modules/npm/node_modules/node-gyp/addon.gypi -I/Users/devchris/.node-gyp/9.8.0/include/node/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/Users/devchris/.node-gyp/9.8.0" "-Dnode_gyp_dir=/usr/local/Cellar/node/9.8.0/libexec/lib/node_modules/npm/node_modules/node-gyp" "-Dnode_lib_file=/Users/devchris/.node-gyp/9.8.0/<(target_arch)/node.lib" "-Dmodule_root_dir=/Users/devchris/Desktop/osync" "-Dnode_engine=v8" binding.gyp
+cmd_regen_makefile = cd $(srcdir); /usr/local/Cellar/node/9.8.0/libexec/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "--toplevel-dir=." -I/Users/devchris/Desktop/zsync/build/config.gypi -I/usr/local/Cellar/node/9.8.0/libexec/lib/node_modules/npm/node_modules/node-gyp/addon.gypi -I/Users/devchris/.node-gyp/9.8.0/include/node/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/Users/devchris/.node-gyp/9.8.0" "-Dnode_gyp_dir=/usr/local/Cellar/node/9.8.0/libexec/lib/node_modules/npm/node_modules/node-gyp" "-Dnode_lib_file=/Users/devchris/.node-gyp/9.8.0/<(target_arch)/node.lib" "-Dmodule_root_dir=/Users/devchris/Desktop/zsync" "-Dnode_engine=v8" binding.gyp
 Makefile: $(srcdir)/../../.node-gyp/9.8.0/include/node/common.gypi $(srcdir)/build/config.gypi $(srcdir)/binding.gyp $(srcdir)/../../../../usr/local/Cellar/node/9.8.0/libexec/lib/node_modules/npm/node_modules/node-gyp/addon.gypi
 	$(call do_cmd,regen_makefile)
 

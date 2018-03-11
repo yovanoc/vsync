@@ -1,1 +1,1 @@
-# osync
+# vsync
