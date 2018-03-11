@@ -1,14 +1,14 @@
 const vsyncRequire = require('bindings')('vsync');
 
-function osync(fn) {
+function vsync(fn) {
 	return function () {
-		var done = false;
-		var args = Array.prototype.slice.apply(arguments).concat(cb);
-		var err;
-		var res;
+		let done = false;
+		let args = Array.prototype.slice.apply(arguments).concat(cb);
+		let err;
+		let res;
 
 		fn.apply(this, args);
-		module.exports.loopWhile(function () {
+		module.exports.loopWhile(() => {
 			return !done;
 		});
 		if (err)
@@ -24,18 +24,18 @@ function osync(fn) {
 	}
 }
 
-module.exports = osync;
+module.exports = vsync;
 
-module.exports.sleep = osync(function (timeout, done) {
+module.exports.sleep = vsync((timeout, done) => {
 	setTimeout(done, timeout);
 });
 
-module.exports.runLoopOnce = function () {
+module.exports.runLoopOnce = () => {
 	process._tickCallback();
 	vsyncRequire.run();
 };
 
-module.exports.loopWhile = function (pred) {
+module.exports.loopWhile = (pred) => {
 	while (pred()) {
 		process._tickCallback();
 		if (pred()) vsyncRequire.run();
