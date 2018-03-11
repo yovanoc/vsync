@@ -67,7 +67,7 @@ var fs = require('fs'),
 
 // }());
 
-const osyncRequire = require('bindings')('osync');
+const zsyncRequire = require('bindings')('zsync');
 
 	function osync(fn) {
 		return function() {
@@ -99,12 +99,12 @@ module.exports.sleep = osync(function (timeout, done) {
 
 module.exports.runLoopOnce = function () {
   process._tickCallback();
-  osyncRequire.run();
+  zsyncRequire.run();
 };
 
 module.exports.loopWhile = function (pred) {
   while (pred()) {
     process._tickCallback();
-    if (pred()) osyncRequire.run();
+    if (pred()) zsyncRequire.run();
   }
 };

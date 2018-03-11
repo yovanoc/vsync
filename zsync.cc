@@ -14,4 +14,4 @@ static NAN_MODULE_INIT(init) {
   Nan::Set(target, Nan::New("run").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(Run)).ToLocalChecked());
 }
 
-NODE_MODULE(osync, init)
+NODE_MODULE(zsync, init)
