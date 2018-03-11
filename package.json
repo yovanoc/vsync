@@ -1,0 +1,16 @@
+{
+  "name": "osync",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Turns async function into sync via JavaScript wrapper of Node event loop",
+  "license": "MIT",
+  "scripts": {
+    "build": "node-gyp configure build",
+    "test": "node osync.js"
+  },
+  "gypfile": true,
+  "dependencies": {
+    "bindings": "^1.3.0",
+    "nan": "^2.9.2"
+  }
+}
