@@ -4,14 +4,26 @@
 
 using namespace v8;
 
-NAN_METHOD(Run) {
-  Nan::HandleScope scope;
+void Run(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   uv_run(uv_default_loop(), UV_RUN_ONCE);
   info.GetReturnValue().Set(Nan::Undefined());
 }
 
-static NAN_MODULE_INIT(init) {
-  Nan::Set(target, Nan::New("run").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(Run)).ToLocalChecked());
+void Init(v8::Local<v8::Object> exports) {
+  exports->Set(Nan::New("run").ToLocalChecked(),
+               Nan::New<v8::FunctionTemplate>(Run)->GetFunction());
 }
 
-NODE_MODULE(vsync, init)
+NODE_MODULE(vsync, Init)
+
+// NAN_METHOD(Run) {
+//   Nan::HandleScope scope;
+//   uv_run(uv_default_loop(), UV_RUN_ONCE);
+//   info.GetReturnValue().Set(Nan::Undefined());
+// }
+
+// static NAN_MODULE_INIT(init) {
+//   Nan::Set(target, Nan::New("run").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(Run)).ToLocalChecked());
+// }
+
+// NODE_MODULE(vsync, init)
