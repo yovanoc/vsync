@@ -18,10 +18,14 @@ const sync = {
   do: function (callback, sleep = 300) {
     this._done = false;
     callback();
-    while (!this._done) {
+    this._vsync.loopWhile(() => {
       console.log(Date.now());
-      this._vsync.sleep(sleep);
-    }
+      return !this._done;
+    });
+    // while (!this._done) {
+    //   console.log(Date.now());
+    //   this._vsync.sleep(sleep);
+    // }
   },
   done: function () {
     this._done = true;

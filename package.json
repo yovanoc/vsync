@@ -1,6 +1,6 @@
 {
   "name": "vsync",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "description": "Turns async function into sync via JavaScript wrapper of Node event loop",
   "scripts": {
